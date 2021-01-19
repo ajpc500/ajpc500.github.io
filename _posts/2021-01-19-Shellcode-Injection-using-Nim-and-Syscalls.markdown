@@ -27,7 +27,7 @@ This blog will walk through a process of using NimlineWhispers to port an existi
 
 For our project, we'll use an example from Marcello's fantastic [OffensiveNim](https://github.com/byt3bl33d3r/OffensiveNim/) repo, specifically [this](https://github.com/byt3bl33d3r/OffensiveNim/blob/master/src/shellcode_bin.nim) one. If you haven't had a play with Nim yet, Marcello's repo is a gold mine of information for installation, compilation, code examples and opsec tips - I highly recommend taking a look.
 
-The code example we'll use spawns a target process, in this case `notepad.exe`, and uses the classic CreateRemoteThread injection technique to allocate memory, write and launch our calc-popping shellcode in that process. The original code can be seen below:
+The code example we'll use spawns a target process, in this case `notepad.exe`, and uses the classic CreateRemoteThread injection technique to allocate memory, write and launch our message box popping shellcode in that process. The original code can be seen below:
 
 {% highlight nim %}
 #[
@@ -333,8 +333,9 @@ Success! Running our compiled executable now, we should get our successful Messa
 
 ![MessageBox](/images/2021-01-19-nim/pop.png)
 
+And of course, if we substitute our harmless message box code for something more exciting, we can weaponise our example project!
 
-
+![Beacon](/images/2021-01-19-nim/beacon-nim.png)
 
 # Conclusions
 
