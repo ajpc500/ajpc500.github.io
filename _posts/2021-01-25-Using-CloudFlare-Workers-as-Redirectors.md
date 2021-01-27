@@ -8,7 +8,7 @@ excerpt: "" #"Using NimlineWhispers to create a registry modifying executable wr
 permalink: /:categories/:title/
 
 header:
-  overlay_image: /images/Cloudflare1/banner.png
+  overlay_image: /images/cloudflare1/banner.png
   overlay_filter: rgba(0, 0, 0, 0.7)
   # actions:
   #   - label: "View Code"
