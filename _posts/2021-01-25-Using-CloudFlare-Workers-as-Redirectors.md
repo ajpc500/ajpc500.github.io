@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "Using Cloudflare Workers as Redirectors"
-date:   2021-01-19 10:04:54 +0000
+date:   2021-01-25 10:04:54 +0000
 categories: c2
 tags: Cloudflare workers redirectors
 excerpt: "" #"Using NimlineWhispers to create a registry modifying executable written in Nim."
