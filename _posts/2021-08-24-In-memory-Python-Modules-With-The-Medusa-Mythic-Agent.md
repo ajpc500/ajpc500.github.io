@@ -367,6 +367,54 @@ Once again, let's take a new Medusa agent - a Python 3.8 one this time - and exe
 
 And there we have it, we've loaded `pypykatz` and its dependencies into our agent - all over our established C2 channel and all in memory - and dumped credentials from LSASS.
 
+# Detection
+
+Being cross-platform, detection opportunities naturally vary across operating systems. Considering the specific Windows capabilities shown in this blog, we could use something like Sysmon EID 22 to log the DNS queries, and then our python process opening a handle to LSASS for the credential dumping.
+
+Considering the Medusa payload itself, even with the XOR'd script, once executed the Medusa script sits in-memory in plaintext. We could use a yara rule such the below to scan for key strings, such as those required in the Mythic JSON responses.
+
+{% highlight python %}
+rule medusa_mythic_agent {
+	meta:
+		description = "Medusa Python strings"
+		author = "ajpc500"
+		date = "2021-08-25"
+	strings:
+		$s1 = "medusa" 
+		$s2 = "get_tasking"
+		$s3 = "PayloadUUID"
+		$s4 = "KillDate"
+		$s5 = "post_response"
+		$s6 = "total_chunks"
+	condition:
+		all of them
+}
+{% endhighlight %}
+
+![Medusa Script in Memory](/images/medusa/medusa-agent-mem.png)
+
+For the in-memory module loading, once uploaded we can see the entire zip sat in memory. We can identify the zip file by its 'magic bytes' or [file headers](https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html), a prefix of `\x50\x4b\x03\x04`.
+
+![Zip file in memory](/images/medusa/pypykatz-mem.png)
+
+We could potentially use another yara rule to scan for these zip file magic bytes, such as the below, though this may not scale well in production.
+
+{% highlight python %}
+rule in_memory_zip {
+	meta:
+		description = "Zip file headers"
+		author = "ajpc500"
+		date = "2021-08-25"
+	strings:
+		$tokenString1 = { 50 4b 03 04 }
+	condition:
+		all of them
+}
+{% endhighlight %}
+
+![Yara output for Zip file in memory](/images/medusa/zip-in-mem.png)
+
+
 # Conclusions
 
 This blog has demonstrated how the concepts of in-memory module loading and dynamic invocation of scripts are applied in the Medusa Mythic agent, across both Python 2.7 and 3.8 versions. While not a novel technique in itself, we've seen how Mythic's extensive scripting API can allow us to streamline this process. Along the way we also saw some of the OPSEC considerations within the Medusa agent, including the ability to Base64 and XOR the agent code, and load new agent functions post-execution to keep the initial script small and not reveal its full capabilities.
