@@ -22,7 +22,7 @@ title: ajpc500
 # subtitle: "Here's a thing that I did"
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Vaguely informative red team and blue team blogs.
+  All things purple team.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ajpc500.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ajpc500
@@ -69,7 +69,7 @@ defaults:
 author:
   name: "Alfie Champion"
   avatar: "/images/arnie.jpg"
-  bio: "Ex-MWR, now work for an AV company. I pretend to be a red teamer, dabbling with all things red and blue." # Note: Markdown is allowed
+  bio: "All things purple team. Previously MWR, now emulating adversaries in an internal team." # Note: Markdown is allowed
   location: "London, UK"
   links:
     - label: "Twitter"
