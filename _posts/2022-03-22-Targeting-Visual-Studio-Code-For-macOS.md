@@ -30,8 +30,8 @@ Looking at this from another angle however - this short blog explores the situat
 
 We can view a user's recently accessed files in a couple of places:
 
-- In a sqlite `state` database at `~/Library/Application Support/Code/User/globalStorage/state.vscdb`
-- In a JSON file which (among other things) dictates what appears in VSCode's menu bars at `~/Library/Application Support/Code/storage.json`
+- In VSCode's global sqlite `state` database at `~/Library/Application Support/Code/User/globalStorage/state.vscdb`.
+- In a JSON file which (among other things) dictates what appears in VSCode's menu bars at `~/Library/Application Support/Code/storage.json.`
 
 When a user makes changes to files in VSCode, until they're saved, they're backed up in temporary files within `~/Library/Application Support/Code/Backups/`. 
 
@@ -334,6 +334,10 @@ Returning to VSCode we'll see that the open `secrets.txt` remains unchanged. How
 ![Modified Secrets File](/images/2022-03-22-vscode/s4.png) 
 
 In our contrived scenario, our changes to the one line in `secrets.txt` are rather obvious, but in the context of a larger open code-base, or some other open configuration files, this could prove valuable.
+
+# Further Work
+
+There is a wealth of data present in VSCode's global `state` datebase, as well as in individual workspace's `state` databases (i.e. those present in `~/Library/Application Support/Code/User/workspaceStorage/`). One such example is the data present under the `codelens/cache2` key which includes details on the files opened in a given workspace, along with each file's line count. No doubt there are plenty of other reconnaissance activities that could be facilitated here too.
 
 # Conclusions
 
