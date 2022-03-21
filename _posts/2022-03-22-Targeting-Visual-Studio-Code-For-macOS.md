@@ -24,7 +24,7 @@ With a rich marketplace of extensions that improve functionality for various pro
 
 From an offensive testing perspective, macOS VSCode has already been explored by others as a means of persistence and code execution. [@domchell](https://twitter.com/domchell/)'s [blog](https://www.mdsec.co.uk/2021/01/macos-post-exploitation-shenanigans-with-vscode-extensions/) highlights how a malicious VSCode extension could be used as a loader for JXA script content, while [@svcghost](https://twitter.com/svcghost) takes this further with a fully-fledged cross-platform Mythic C2 Agent, [Venus](https://github.com/MythicAgents/venus).
 
-Looking at this from another angle however - this short blog explores the situational awareness that can be gleaned from VSCode, should an operator have obtained an initial foothold. While also considering what sensitive data might be exposed, which would otherwise be protected by Apple's [oft-maligned](https://www.youtube.com/watch?v=W9GxnP8c8FU) 'Transparency, Consent and Control' framework, aka TCC. We'll also see these reconnaissance activities operationalised in the Mythic [Medusa](https://github.com/MythicAgents/Medusa) agent.
+Looking at this from another angle however - this short blog explores the situational awareness that can be gleaned from VSCode, should an operator have obtained an initial foothold; while also considering what sensitive data might be exposed, which would otherwise be protected by Apple's [oft-maligned](https://www.youtube.com/watch?v=W9GxnP8c8FU) 'Transparency, Consent and Control' framework, aka TCC. We'll also see these reconnaissance activities operationalised in the Mythic [Medusa](https://github.com/MythicAgents/Medusa) agent.
 
 ## TL;DR
 
@@ -317,6 +317,7 @@ Of course, as a user makes changes to files in VSCode and subsequently saves the
 
 <iframe title="vimeo-player" src="https://player.vimeo.com/video/690644344?h=f5003cd783" width="640" height="400" frameborder="0" allowfullscreen></iframe>
 
+ 
 # Bonus Round: Modifying An Open Edit
 
 Whilst we have the ability to see the unsaved edits for files in VSCode, we also have the ability to make edits of our own. We can achieve this by modifying the backup files we discovered above. 
