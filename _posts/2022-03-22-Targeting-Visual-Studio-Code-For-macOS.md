@@ -337,7 +337,9 @@ In our contrived scenario, our changes to the one line in `secrets.txt` are rath
 
 # Further Work
 
-There is a wealth of data present in VSCode's global `state` datebase, as well as in individual workspace's `state` databases (i.e. those present in `~/Library/Application Support/Code/User/workspaceStorage/`). One such example is the data present under the `codelens/cache2` key which includes details on the files opened in a given workspace, along with each file's line count. No doubt there are plenty of other reconnaissance activities that could be facilitated here too.
+There is a wealth of data present in VSCode's global `state` datebase, as well as in individual workspaces' `state` databases (i.e. those present in `~/Library/Application Support/Code/User/workspaceStorage/`). 
+
+One such example is the data present under the `codelens/cache2` key which includes details on the files opened in a given workspace, along with each file's line count. No doubt there are plenty of other reconnaissance activities that could be facilitated here too.
 
 # Conclusions
 
