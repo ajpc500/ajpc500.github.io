@@ -8,6 +8,21 @@ author_profile: true
 * TOC
 {:toc}
 
+## Blue Team Con 2022
+
+> Going Atomic: The Strengths and Weaknesses of a Technique-centric Purple Teaming Approach
+
+Atomic purple teaming, i.e. testing individual permutations of offensive techniques outside of a scenario-based exercise, offers an approach that can maximise kill chain coverage and provides a means to benchmark a SOC's detective capability.
+
+Initially, the methodology for atomic testing will be presented, alongside example results from a typical engagement. We'll evaluate the significant data set that such testing can produce - e.g. which test cases produce telemetry, which produce alerts, which were prevented - and consider its application in informing SOC strategy, demonstrating Return on Investment, and providing insight into general security posture.
+
+This empirical, data-driven approach is invaluable in developing a bottom-up view of our defenses, i.e. understanding how our detection stack fares when faced with the tactics, techniques and procedures of legitimate actors, but it is not a one-stop shop for adversary emulation. As such, this talk will consider the limitations of such an approach, and how other supplementary collaborative testing can offer a more complete view of detective capability.
+
+**NOTE:** This talk was not recorded, so I've produced a write-up of the content as a reference [here]({{ site.baseurl }}/talks/Blue-Team-Con-Going-Atomic/).
+
+[Presentation Slides]({{ site.baseurl }}/files/btc.pdf)
+
+
 ## BlackHat USA 2021
 
 > Breaking Network Segregation Using Esoteric Command & Control Channels
